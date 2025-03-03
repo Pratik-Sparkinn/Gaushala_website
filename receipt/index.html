@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Receipt - Gaushala</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>गौशाळा दान पावती</h2>
+        <form id="donationForm" action="generate_receipt.php" method="POST" target="_blank">
+            <label>दानकर्त्याचे नाव:</label>
+            <input type="text" name="donor_name" required>
+
+            <label>मोबाइल नंबर:</label>
+            <input type="text" name="mobile" required pattern="\d{10}" title="10 अंकी मोबाइल नंबर प्रविष्ट करा">
+
+            <label>ई-मेल:</label>
+            <input type="email" name="email" required>
+
+            <label>दानाची रक्कम (₹):</label>
+            <input type="number" name="amount" required min="1">
+
+            <label>दानाचा प्रकार:</label>
+            <select name="donation_type">
+                <option value="गाय दत्तक योजना">गाय दत्तक योजना</option>
+                <option value="आहार दान">आहार दान</option>
+                <option value="गोशाळा विकास">गोशाळा विकास</option>
+            </select>
+
+            <label>तारीख:</label>
+            <input type="date" name="date" required>
+
+            <button type="submit">पावती जनरेट करा</button>
+        </form>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("#donationForm").submit(function() {
+                alert("आपली पावती तयार केली जात आहे.");
+            });
+        });
+    </script>
+
+</body>
+</html>
