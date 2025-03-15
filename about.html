@@ -3,13 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Gau Shala</title>
+        <title>About Us - Gau Shala</title>
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      </head>
+        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script src="index.js"></script>
+    </head>
 <body>
    <!-- Hero Section -->
    <!-- <section class="hero py-3" ">
@@ -119,6 +121,7 @@
     <div class="container-fluid">
         <a href="index.html" class="navbar-brand">
           <img src="./img/logo.png" alt="Gau Shala Logo" style="height: 70px; ">
+          <span class="ms-2 om-symbol">ॐ</span>
         </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -138,46 +141,367 @@
   </nav>
 </header>
 
+<!-- Language Selector -->
+<div class="language-selector">
+    <button class="language-btn" onclick="changeLanguage('en')">English</button>
+    <button class="language-btn" onclick="changeLanguage('hi')">हिंदी</button>
+    <button class="language-btn" onclick="changeLanguage('mr')">मराठी</button>
+</div>
+
+<!-- Google Translate Element -->
+<div id="google_translate_element" style="display: none;"></div>
+
 <!-- Introduction Section -->
-<section class="about-us p-5">
+<section class="about-us-intro p-5">
   <div class="container">
-    <div class="row">
-      <h2 class="text-center mb-4">About Us</h2>
-      <p class="lead text-center">Our mission is to honor Gau Mata by providing a sanctuary dedicated to her care, fostering compassion, and preserving cultural traditions.</p>
+    <div class="about-header text-center">
+      <div class="om-symbol-large">ॐ</div>
+      <h2 class="section-title">About Our Gaushala</h2>
+      <div class="divine-separator">
+        <span class="separator-line"></span>
+        <i class="fas fa-om"></i>
+        <span class="separator-line"></span>
+      </div>
+      <p class="lead devotional-text">
+        "गौ सेवा, मानव सेवा, ईश्वर सेवा" <br>
+        <span class="english-translation">(Service to Cows is Service to Humanity and the Divine)</span>
+      </p>
     </div>
-  </div>
 
-  <hr class="my-4 about-us-line">
-
-<div class="container">
-  <div class="row">
-    <div class="row mt-4 justify-content-between">
-      <div class="col-md-5 bg-white rounded text-dark">
-        <h4 class="text-center">Our Story</h4>
-        <p class="text-dark">The Gau Shala was founded in 2005, inspired by traditional values and the importance of cow protection in Hindu culture. Since then, it has provided shelter for over 500 cows, promoting welfare and protection for these sacred animals.</p>
+    <div class="row mt-5">
+      <div class="col-md-6">
+        <div class="about-card story-card">
+          <div class="card-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <h4>Our Story</h4>
+          <div class="card-divider"></div>
+          <p>The Gau Shala was founded in 2005, inspired by the ancient Vedic traditions and the sacred duty of cow protection. What began as a humble shelter has blossomed into a sanctuary for over 500 cows, embodying the principles of compassion and spiritual devotion.</p>
+          <div class="sacred-motif"></div>
+        </div>
       </div>
       
-      <div class="col-md-5 bg-white rounded text-dark">
-        <h4 class="text-center">Our Mission</h4>
-        <p class="text-dark">Our mission is to create a safe haven for cows, uphold cultural heritage, and foster community engagement. We strive to protect, honor, and nurture every cow within our sanctuary.</p>
+      <div class="col-md-6">
+        <div class="about-card mission-card">
+          <div class="card-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h4>Our Sacred Mission</h4>
+          <div class="card-divider"></div>
+          <p>Our mission extends beyond providing shelter - we are dedicated to preserving the sacred bond between humans and cows, as described in our ancient scriptures. Through our work, we aim to create a harmonious space where spiritual growth and animal welfare flourish together.</p>
+          <div class="sacred-motif"></div>
+        </div>
       </div>
+    </div>
 
+    <div class="spiritual-quote text-center mt-5">
+      <i class="fas fa-quote-left quote-icon"></i>
+      <p class="sanskrit-text">"गौ माता हमारी, पूजनीय हमारी"</p>
+      <p class="quote-translation">The cow is our mother, worthy of our worship and protection</p>
     </div>
   </div>
-</div>
-  
-  <hr class="my-4 about-us-line">
-  
-  <div class="timeline">
-    <h4 class="text-center mb-4">Our Journey</h4>
-    <ul class="list-unstyled text-center timeline-list">
-      <li>2005 - Foundation of the Gau Shala</li>
-      <li>2010 - Reached 200 cows in care</li>
-      <li>2015 - Built the on-site Shiv Temple</li>
-      <li>2020 - Established Green Gym for visitors</li>
-    </ul>
-  </div>
 </section>
+
+<!-- Growth and History Section -->
+<section class="growth-history-section p-5">
+    <div class="container">
+        <div class="section-header text-center">
+            <div class="om-symbol-large">ॐ</div>
+            <h2 class="section-title">Our Journey & Growth</h2>
+            <div class="divine-separator">
+                <span class="separator-line"></span>
+                <i class="fas fa-om"></i>
+                <span class="separator-line"></span>
+            </div>
+        </div>
+
+        <div class="timeline">
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-date">2007</div>
+                    <h3>स्थापना / Establishment</h3>
+                    <p class="marathi-text">श्री उज्ज्वल गोरक्षण संस्थेची (गोशाळा) स्थापना 2007 साली झाली.</p>
+                    <p class="english-text">Shree Ujjwal Gorakshan Sanstha (Gaushala) was established in 2007.</p>
+                    <p class="marathi-text">वसंखार भारती वाणीभूषण प. पू. भी प्रितीयुष्धाजी म. सा यांच्या संकल्पनेने स्थापना झाली.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-date">2007-2008</div>
+                    <h3>प्रारंभिक दिवस / Early Days</h3>
+                    <p class="marathi-text">ज्या वेळेस गोशाळा स्थापन झाली, त्या वेळेस आपल्याकडे ११ गाई होत्या.</p>
+                    <p class="english-text">When the Gaushala was established, we started with 11 cows.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <div class="timeline-date">2007-2028</div>
+                    <h3>विकास आणि वाढ / Growth and Development</h3>
+                    <p class="marathi-text">कत्तलखाव्यातुन आलेल्या व जे कोणी शेती सांभाळू शकत नाही, अशा सोडुन दिलेल्या गाई आपण सांभाळत असतो.</p>
+                    <p class="english-text">We care for cows rescued from slaughterhouses and those abandoned by farmers who couldn't maintain them.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <div class="timeline-date">2028</div>
+                    <h3>वर्तमान स्थिती / Current Status</h3>
+                    <p class="marathi-text">२०२८ या वर्षी 550 ते 600 गाईचे संगोपन करत आहोत.</p>
+                    <p class="english-text">In 2028, we are nurturing 550 to 600 cows.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="features-grid mt-5">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-music"></i>
+                </div>
+                <h4>भक्तिमय वातावरण / Devotional Environment</h4>
+                <p class="marathi-text">गोशाळेत गाईला भक्तीमय संगीत ऐकवले जाते.</p>
+                <p class="english-text">Devotional music is played for the cows in the Gaushala.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-shower"></i>
+                </div>
+                <h4>आधुनिक सुविधा / Modern Facilities</h4>
+                <p class="marathi-text">गरम वातावरणामधे गाईना शॉवर (फॉगर्स) दिले जाते.</p>
+                <p class="english-text">Cows are provided with showers (foggers) during hot weather.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <h4>पशु चिकित्सा / Veterinary Care</h4>
+                <p class="marathi-text">पिंपळगावान जे पण आजारी जनावरे असतात, ते आपण आपल्या गोशाळेत आणतो व त्यांच्यावरती उपचार केला जातो.</p>
+                <p class="english-text">We bring sick animals from Pimpalgaon to our Gaushala for treatment and care.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-hand-holding-heart"></i>
+                </div>
+                <h4>दान कार्यक्रम / Donation Program</h4>
+                <p class="marathi-text">आजपर्यंन 200 ते 250 गाई हिंदु धर्माप्रमाणे कांदा व्यापारी यांना संगोपनासाठी देत असतो. व तसेच गोरे, बैल, 200 ते 300 वत्सू शेतकऱ्यांना दिलेले आहे.</p>
+                <p class="english-text">We have donated 200-250 cows to onion traders and 200-300 calves and bulls to farmers, following Hindu traditions.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Growth and History Section Styles */
+.growth-history-section {
+    background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.growth-history-section::before {
+    content: 'ॐ';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 300px;
+    color: rgba(255, 140, 0, 0.05);
+    z-index: 0;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background: linear-gradient(to bottom, transparent, #ff8c00, transparent);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 3px;
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.2);
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: #ff8c00;
+    border: 4px solid #fff;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover::after {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    left: 50%;
+}
+
+.right::after {
+    left: -8px;
+}
+
+.timeline-content {
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 140, 0, 0.2);
+}
+
+.timeline-date {
+    color: #ff8c00;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.timeline-content h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.marathi-text {
+    color: #666;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.english-text {
+    color: #888;
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.feature-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 140, 0, 0.1), transparent);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 140, 0, 0.2);
+}
+
+.feature-card:hover::before {
+    opacity: 1;
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: rgba(255, 140, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #ff8c00;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: rotate(360deg);
+    background: #ff8c00;
+    color: white;
+}
+
+.feature-card h4 {
+    color: #333;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .right {
+        left: 0;
+    }
+    
+    .timeline-item::after {
+        left: 15px;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
 
 <!-- Facilities Overview Section -->
 <section class="facilities-section p-5 bg-light">
@@ -245,65 +569,71 @@
     </div>
   </div>
 </section>
-<section class="side-social">
-  <div class="social-card">
-    <ul>
-      <li class="iso-pro">
-        <span></span>
-        <span></span>
-        <span></span>
-        <a href="">
-          <svg
-            viewBox="0 0 320 512"
-            xmlns="http://www.w3.org/2000/svg"
-            class="svg"
-          >
-            <path
-              d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
-            ></path></svg
-        ></a>
-         
-      </li>
-      <li class="iso-pro">
-        <span></span>
-        <span></span>
-        <span></span>
-        <a href="">
-          <svg
-            class="svg"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 512 512"
-          >
-            <path
-              d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
-            ></path>
-          </svg>
-        </a>
-         
-      </li>
-      <li class="iso-pro">
-        <span></span>
-        <span></span>
-        <span></span>
-        <a href="">
-          <svg
-            class="svg"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"
-          >
-            <path
-              d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-            ></path>
-          </svg>
-        </a>
-         
-      </li>
-    </ul>
+
+<!-- Attractions Section -->
+<section class="attractions-section p-5 bg-light">
+  <div class="container text-center justify-content-center">
+    <div class="row text-center">
+      <h2 class="attractions-title mb-4">Our Attractions</h2>
+    </div>
   </div>
-  
-  
-  </section>
-    
+
+  <div class="container">
+    <div class="row text-center">
+      <!-- Green Gym Card -->
+      <div class="col-md-3 mb-4">
+        <div class="attraction-card h-100">
+          <div class="attraction-icon">
+            <i class="fas fa-dumbbell"></i>
+          </div>
+          <div class="attraction-body">
+            <h5>Green Gym</h5>
+            <p>Exercise in nature's embrace, surrounded by peaceful environment and fresh air.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Children's Play Area -->
+      <div class="col-md-3 mb-4">
+        <div class="attraction-card h-100">
+          <div class="attraction-icon">
+            <i class="fas fa-child"></i>
+          </div>
+          <div class="attraction-body">
+            <h5>Children's Play Area</h5>
+            <p>Safe and fun playground with swings, slides, and interactive games for kids.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kabutar Khana -->
+      <div class="col-md-3 mb-4">
+        <div class="attraction-card h-100">
+          <div class="attraction-icon">
+            <i class="fas fa-dove"></i>
+          </div>
+          <div class="attraction-body">
+            <h5>Kabutar Khana</h5>
+            <p>A peaceful sanctuary for pigeons, adding to the spiritual atmosphere.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Shiv Temple -->
+      <div class="col-md-3 mb-4">
+        <div class="attraction-card h-100">
+          <div class="attraction-icon">
+            <i class="fas fa-om"></i>
+          </div>
+          <div class="attraction-body">
+            <h5>Shiv Temple</h5>
+            <p>A divine space for spiritual connection and peaceful meditation.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Team Information Section -->
 <section class="p-5 bg-white our-team">
@@ -316,45 +646,61 @@
       <div class="row text-center">
           <!-- Team Member 1 -->
           <div class="col-md-4 mb-4 team-member">
-              <div class="card h-100 shadow-sm">
+              <div class="card h-100">
+                  <span class="role-badge">Head of Animal Welfare</span>
                   <img src="./img/a_cow_in_a_gaushala_indian_background (1).jpeg" class="card-img-top" alt="Anjali Patel">
                   <div class="card-body">
                       <h5 class="card-title">Anjali Patel</h5>
                       <p class="card-text">Head of Animal Welfare</p>
                       <p>With over 10 years in veterinary care, Anjali ensures the health and happiness of every cow in our Gau Shala.</p>
+                      <div class="social-icons">
+                          <a href="#"><i class="fab fa-linkedin"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-facebook"></i></a>
+                      </div>
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                         <path d="M10.5 8a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0zM8 0a8 8 0 1 0 8 8 8 8 0 0 0-8-8zM8 14a6 6 0 0 1-5.46-3.7C3.5 9.5 5.72 8 8 8c2.28 0 4.5 1.5 5.46 2.3A6 6 0 0 1 8 14z"/>
                       </svg>
-                      
                   </div>
               </div>
           </div>
           <!-- Team Member 2 -->
           <div class="col-md-4 mb-4 team-member">
-              <div class="card h-100 shadow-sm">
+              <div class="card h-100">
+                  <span class="role-badge">Facility Manager</span>
                   <img src="./img/a_cow_in_a_gaushala_indian_background (2).jpeg" class="card-img-top" alt="Ram Singh">
                   <div class="card-body">
                       <h5 class="card-title">Ram Singh</h5>
                       <p class="card-text">Facility Manager</p>
                       <p>Ram oversees daily operations and ensures the Gau Shala remains a safe, organized, and serene environment.</p>
+                      <div class="social-icons">
+                          <a href="#"><i class="fab fa-linkedin"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-facebook"></i></a>
+                      </div>
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                         <path d="M10.5 8a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0zM8 0a8 8 0 1 0 8 8 8 8 0 0 0-8-8zM8 14a6 6 0 0 1-5.46-3.7C3.5 9.5 5.72 8 8 8c2.28 0 4.5 1.5 5.46 2.3A6 6 0 0 1 8 14z"/>
                       </svg>
-                      
                   </div>
               </div>
           </div>
           <!-- Team Member 3 -->
           <div class="col-md-4 mb-4 team-member">
-              <div class="card h-100 shadow-sm">
+              <div class="card h-100">
+                  <span class="role-badge">Volunteer Coordinator</span>
                   <img src="./img/a_cow_in_a_gaushala_indian_background (3).jpeg" class="card-img-top" alt="Priya Desai">
                   <div class="card-body">
                       <h5 class="card-title">Priya Desai</h5>
                       <p class="card-text">Volunteer Coordinator</p>
                       <p>Priya manages our volunteers, inspiring and organizing community members to engage in Gau Seva.</p>
+                      <div class="social-icons">
+                          <a href="#"><i class="fab fa-linkedin"></i></a>
+                          <a href="#"><i class="fab fa-twitter"></i></a>
+                          <a href="#"><i class="fab fa-facebook"></i></a>
+                      </div>
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                         <path d="M10.5 8a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0zM8 0a8 8 0 1 0 8 8 8 8 0 0 0-8-8zM8 14a6 6 0 0 1-5.46-3.7C3.5 9.5 5.72 8 8 8c2.28 0 4.5 1.5 5.46 2.3A6 6 0 0 1 8 14z"/>
-                      </svg>                      
+                      </svg>
                   </div>
               </div>
           </div>
@@ -362,7 +708,7 @@
   </div>
   <div class="container justify-content-center">
       <div class="row justify-content-center text-center mt-4">
-          <a href="#volunteer" class="btn btn-warning">Join Us</a>
+          <a href="#volunteer" class="btn btn-warning">Join Our Team</a>
       </div>
   </div>
 </section>
@@ -428,6 +774,778 @@
     </section>
     <!-- Section: Links  -->
   </footer>
+
+<style>
+/* Language Selector Styles */
+.language-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.language-btn {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background: #ff8c00;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+    background: #ff6b00;
+    transform: scale(1.05);
+}
+
+/* Enhanced Header Styles */
+.navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #ff8c00 !important;
+}
+
+.nav-link {
+    color: #333 !important;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ff8c00;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 80%;
+}
+
+.nav-link:hover {
+    color: #ff8c00 !important;
+}
+
+/* Footer Styles */
+footer {
+    background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: 'ॐ';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 200px;
+    color: rgba(255, 140, 0, 0.1);
+    z-index: 0;
+    opacity: 0.5;
+}
+
+footer .text-reset {
+    color: #333 !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer .text-reset:hover {
+    color: #ff8c00 !important;
+    transform: translateX(5px);
+}
+
+footer .social-media a {
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 140, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+footer .social-media a:hover {
+    background: #ff8c00;
+    color: white !important;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: rgba(255, 255, 255, 0.98);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-link {
+        padding: 0.8rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .language-selector {
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+    }
+
+    .language-btn {
+        padding: 3px 8px;
+        font-size: 0.9em;
+    }
+
+    .navbar-brand img {
+        height: 50px;
+    }
+}
+
+/* Timeline Styles */
+.timeline-section {
+    padding: 50px 0;
+    position: relative;
+    background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background: #ff8c00;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+}
+
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    width: 50%;
+    box-sizing: border-box;
+    margin-bottom: 30px;
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: #ff8c00;
+    border: 4px solid #fff;
+    top: 50%;
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.timeline-item:hover::after {
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(255, 140, 0, 0.5);
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    left: 50%;
+}
+
+.right::after {
+    left: -8px;
+}
+
+.timeline-content {
+    padding: 20px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(255, 140, 0, 0.2);
+}
+
+.timeline-img {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.timeline-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.timeline-content:hover .timeline-img img {
+    transform: scale(1.1);
+}
+
+.timeline-content h3 {
+    color: #ff8c00;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    color: #666;
+    margin: 0;
+}
+
+/* Attractions Styles */
+.attractions-section {
+    background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+    padding: 80px 0;
+    position: relative;
+}
+
+.attractions-title {
+    color: #ff8c00;
+    position: relative;
+    display: inline-block;
+    margin-bottom: 50px;
+}
+
+.attractions-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ff8c00, transparent);
+}
+
+.attraction-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.attraction-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 140, 0, 0.1), transparent);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.attraction-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 140, 0, 0.2);
+}
+
+.attraction-card:hover::before {
+    opacity: 1;
+}
+
+.attraction-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 20px;
+    background: rgba(255, 140, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #ff8c00;
+    transition: all 0.3s ease;
+}
+
+.attraction-card:hover .attraction-icon {
+    transform: scale(1.1) rotate(10deg);
+    background: #ff8c00;
+    color: white;
+}
+
+.attraction-body h5 {
+    color: #333;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.attraction-body p {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .timeline::after {
+        left: 31px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .right {
+        left: 0;
+    }
+    
+    .timeline-item::after {
+        left: 15px;
+    }
+    
+    .attraction-card {
+        margin-bottom: 20px;
+    }
+}
+
+/* Facilities Section Styles */
+.facilities-section {
+    background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.facilities-section::before {
+    content: 'ॐ';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 300px;
+    color: rgba(255, 140, 0, 0.05);
+    z-index: 0;
+}
+
+.facilities-title {
+    color: #ff8c00;
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.facilities-title::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ff8c00, transparent);
+}
+
+.facility-card {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    z-index: 1;
+    border: none;
+    overflow: hidden;
+}
+
+.facility-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 140, 0, 0.1), rgba(255, 255, 255, 0.8));
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.facility-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(255, 140, 0, 0.2);
+}
+
+.facility-card:hover::before {
+    opacity: 1;
+}
+
+.facility-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 25px;
+    transition: all 0.4s ease;
+}
+
+.facility-card:hover .facility-icon {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.facility-title {
+    color: #333;
+    font-size: 1.5rem;
+    margin: 15px 0;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.facility-card:hover .facility-title {
+    color: #ff8c00;
+}
+
+.facility-text {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.facility-icon svg {
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s ease;
+}
+
+.facility-card:hover .facility-icon svg {
+    filter: drop-shadow(0 5px 15px rgba(255, 140, 0, 0.3));
+}
+
+@media (max-width: 768px) {
+    .facilities-section {
+        padding: 40px 0;
+    }
+    
+    .facilities-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    
+    .facility-card {
+        margin-bottom: 30px;
+    }
+}
+
+/* Custom SVG Icons */
+.facility-icon svg circle {
+    transition: all 0.4s ease;
+}
+
+.facility-card:hover .facility-icon svg circle {
+    fill: #ff8c00;
+    stroke: #fff;
+}
+
+.facility-icon svg text {
+    transition: all 0.4s ease;
+}
+
+.facility-card:hover .facility-icon svg text {
+    fill: #fff;
+    stroke: #fff;
+}
+
+/* Remove social media styles */
+.social-media-section,
+.social-media-grid,
+.social-card,
+.social-icon,
+.social-content,
+.hover-content,
+.follow-btn {
+    display: none;
+}
+
+/* Team Section Styles */
+.our-team {
+    background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.our-team::before {
+    content: 'ॐ';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-size: 300px;
+    color: rgba(255, 140, 0, 0.05);
+    z-index: 0;
+}
+
+.our-team h2 {
+    color: #ff8c00;
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.our-team h2::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #ff8c00, transparent);
+}
+
+.team-member .card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: white;
+    position: relative;
+}
+
+.team-member .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 140, 0, 0.1), rgba(255, 255, 255, 0.8));
+    opacity: 0;
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.team-member .card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(255, 140, 0, 0.2);
+}
+
+.team-member .card:hover::before {
+    opacity: 1;
+}
+
+.team-member .card-img-top {
+    height: 300px;
+    object-fit: cover;
+    transition: all 0.4s ease;
+}
+
+.team-member .card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.team-member .card-body {
+    padding: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.team-member .card-title {
+    color: #ff8c00;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.team-member .card-text {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.team-member p {
+    color: #777;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.team-member .bi-person-circle {
+    color: #ff8c00;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.team-member .card:hover .bi-person-circle {
+    transform: rotate(360deg);
+}
+
+.btn-warning {
+    background: #ff8c00;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 40px;
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.2);
+}
+
+.btn-warning:hover {
+    background: #ff6b00;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 140, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .our-team {
+        padding: 60px 0;
+    }
+    
+    .our-team h2 {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    
+    .team-member .card {
+        margin-bottom: 30px;
+    }
+    
+    .team-member .card-img-top {
+        height: 250px;
+    }
+}
+
+/* Social Icons for Team Members */
+.team-member .social-icons {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s ease;
+}
+
+.team-member .card:hover .social-icons {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.team-member .social-icons a {
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 140, 0, 0.1);
+    color: #ff8c00;
+    transition: all 0.3s ease;
+}
+
+.team-member .social-icons a:hover {
+    background: #ff8c00;
+    color: white;
+    transform: translateY(-3px);
+}
+
+/* Team Member Role Badge */
+.team-member .role-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 140, 0, 0.9);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0.4s ease;
+}
+
+.team-member .card:hover .role-badge {
+    opacity: 1;
+    transform: translateX(0);
+}
+</style>
+
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,mr',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+
+function changeLanguage(lang) {
+    const select = document.querySelector('.goog-te-combo');
+    if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event('change'));
+    }
+}
+
+$(document).ready(function() {
+    // Add hover effect for nav links
+    $(".nav-link").hover(function() {
+        $(this).css("letter-spacing", "1px");
+    }, function() {
+        $(this).css("letter-spacing", "0");
+    });
+
+    // Smooth scrolling for anchor links
+    $('a.nav-link').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 800);
+    });
+});
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>

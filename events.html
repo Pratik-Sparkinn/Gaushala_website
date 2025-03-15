@@ -10,33 +10,47 @@
         <link rel="stylesheet" href="styles.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-      </head>
+        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        <script src="index.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    </head>
 <body>
 
-  <!-- Header Section -->
-  <header class="py-3 bg-light">
+<!-- Language Selector -->
+<div class="language-selector">
+    <button class="language-btn" onclick="changeLanguage('en')">English</button>
+    <button class="language-btn" onclick="changeLanguage('hi')">हिंदी</button>
+    <button class="language-btn" onclick="changeLanguage('mr')">मराठी</button>
+</div>
+
+<!-- Google Translate Element -->
+<div id="google_translate_element" style="display: none;"></div>
+
+<!-- Header Section -->
+<header class="py-3 bg-light">
     <nav class="navbar navbar-expand-lg">
-      <div class="container-fluid">
-          <a href="index.html" class="navbar-brand">
-            <img src="./img/logo.png" alt="Gau Shala Logo" style="height: 70px; ">
-          </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="./donation.html">Donations</a></li>
-            <li class="nav-item"><a class="nav-link" href="./events.html">Events</a></li>
-            <li class="nav-item"><a class="nav-link" href="./gallery.html">Gallery</a></li>
-            <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
-          </ul>
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand">
+                <img src="./img/logo.png" alt="Gau Shala Logo" style="height: 70px;">
+                <span class="ms-2 om-symbol">ॐ</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./donation.html">Donations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./events.html">Events</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./contact.html">Contact</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
     </nav>
-  </header>
+</header>
 
 <section class="p-5 bg-white position-relative">
   <!-- SVG Background -->
@@ -44,83 +58,231 @@
     <path fill="#e3f2fd" d="M0,256L48,245.3C96,235,192,213,288,186.7C384,160,480,128,576,133.3C672,139,768,181,864,197.3C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
   </svg>
 
-  <div class="container justify-content-center">
-    <div class="row">
-      <h2 class="text-center mb-5 " style="color: #ccc12e;;">Upcoming Events</h2>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row w-100">
-      <!-- Calendar Section -->
-      <div class="col-md-6 mb-4">
-        <div class="card shadow-sm hover-card">
-          <div class="card-body">
-            <h5 class="card-title text-center text-secondary">Event Calendar</h5>
-            <div class="calendar text-center">
-              <p>
-                <iframe src="https://calendar.google.com/calendar/embed?src=gorakshak.socialmedia%40gmail.com&ctz=Asia%2FKolkata" style="border: 0" width="100%" height="300" frameborder="0" scrolling="no"></iframe>
-              </p>
+  <!-- Birthday Hall Section -->
+  <div class="container mb-5">
+    <div class="birthday-hall-card">
+      <h2 class="text-center mb-4">Birthday Celebration Hall</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="celebration-image">
+            <img src="./img/Birthday_party.jpeg" alt="Birthday Hall" class="img-fluid">
+            <div class="celebration-overlay">
+              <div class="celebration-text">
+                <h3>Celebrate with Divine Blessings</h3>
+                <p>Make your special day memorable in our sacred space</p>
+              </div>
             </div>
-            <p class="text-center mt-3">Click on events to view more details.</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="celebration-details">
+            <div>
+              <h4 class="mb-4">Celebration Package Includes:</h4>
+              <ul class="celebration-list">
+                <li>
+                  <i class="fas fa-om"></i>
+                  <span>Sacred Gau Puja and Divine Blessings</span>
+                </li>
+                <li>
+                  <i class="fas fa-birthday-cake"></i>
+                  <span>Beautifully Decorated Hall Space</span>
+                </li>
+                <li>
+                  <i class="fas fa-users"></i>
+                  <span>Capacity: 50-100 people</span>
+                </li>
+                <li>
+                  <i class="fas fa-clock"></i>
+                  <span>Duration: 3-hour celebration</span>
+                </li>
+                <li>
+                  <i class="fas fa-rupee-sign"></i>
+                  <span>Package Price: ₹3,100/-</span>
+                </li>
+              </ul>
+            </div>
+            <button class="book-celebration-btn" data-bs-toggle="modal" data-bs-target="#celebrationModal">
+              Book Your Celebration
+              <span class="btn-overlay"></span>
+            </button>
           </div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- Filter Section -->
-      <div class="col-md-6 mb-4">
-        <div class="card shadow-sm hover-card">
-          <div class="card-body">
-            <h5 class="card-title text-center text-secondary">Filter Events</h5>
-            <form class="d-flex">
-              <div class="form-group col-md-6">
-                <label for="eventType">Event Type</label>
-                <select id="eventType" class="form-control">
-                  <option>All Events</option>
-                  <option>Festivals</option>
-                  <option>Workshops</option>
-                  <option>Community Gatherings</option>
-                </select>
-              </div>
-              <div class="form-group col-md-6">
-                <label for="timeFrame">Timeframe</label>
-                <select id="timeFrame" class="form-control">
-                  <option>This Week</option>
-                  <option>This Month</option>
-                  <option>Upcoming Events</option>
-                </select>
-              </div>
-            </form>
-            <button type="button" class="btn btn-primary btn-block mt-3 w-100" id="applyFilters">Apply Filters</button>
+  <!-- Birthday Hall Modal -->
+  <div class="modal fade" id="celebrationModal" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Book Birthday Celebration</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <form id="celebrationForm">
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input type="text" class="form-control" required>
             </div>
-          </div>
-
-          <div class="col-md-12 mt-4">
-            <div class="card shadow-sm">
-            <div class="card-body">
-              <h5 class="card-title text-center text-secondary">List of Events</h5>
-              <ul class="list-group">
-              <li class="list-group-item">Event 1: Description of event 1</li>
-              <li class="list-group-item">Event 2: Description of event 2</li>
-              <li class="list-group-item">Event 3: Description of event 3</li>
-              <li class="list-group-item">Event 4: Description of event 4</li>
-              <!-- <li class="list-group-item">Event 5: Description of event 5</li> -->
-              </ul>
+            <div class="mb-3">
+              <label class="form-label">Contact Number</label>
+              <input type="tel" class="form-control" required>
             </div>
+            <div class="mb-3">
+              <label class="form-label">Celebration Date</label>
+              <input type="date" class="form-control" required>
             </div>
-          </div>
-        
-
+            <div class="mb-3">
+              <label class="form-label">Number of Guests</label>
+              <input type="number" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Special Requirements</label>
+              <textarea class="form-control" rows="3"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" form="celebrationForm" class="btn btn-primary">Book Celebration</button>
+        </div>
       </div>
     </div>
   </div>
-  
-  
 
+  <div class="container justify-content-center">
+    <div class="row">
+      <h2 class="text-center mb-5" style="color: #ccc12e;">Upcoming Events</h2>
+    </div>
+  </div>
 
+  <!-- Events Filter Section -->
+  <section class="events-filter py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Sacred Calendar 2024-2025</h2>
+        <div class="row mb-4">
+            <div class="col-md-12">
+                <div class="filter-buttons text-center">
+                    <button class="btn btn-outline-warning active mx-2" data-filter="all">All Events</button>
+                    <button class="btn btn-outline-warning mx-2" data-filter="amavasya">Amavasya</button>
+                    <button class="btn btn-outline-warning mx-2" data-filter="festival">Major Festivals</button>
+                    <button class="btn btn-outline-warning mx-2" data-filter="cow-festivals">Cow Related</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calendar Grid -->
+        <div class="calendar-grid">
+            <!-- Amavasya Dates 2025 -->
+            <div class="calendar-card" data-category="amavasya">
+                <div class="calendar-header">
+                    <i class="fas fa-moon"></i>
+                    <h3>Amavasya Dates 2025</h3>
+                </div>
+                <div class="calendar-content">
+                    <div class="date-item">
+                        <span class="month">January</span>
+                        <span class="date">28</span>
+                        <span class="event">Pausha Amavasya</span>
+                    </div>
+                    <div class="date-item">
+                        <span class="month">February</span>
+                        <span class="date">26</span>
+                        <span class="event">Magha Amavasya</span>
+                    </div>
+                    <div class="date-item">
+                        <span class="month">March</span>
+                        <span class="date">28</span>
+                        <span class="event">Phalguna Amavasya</span>
+                    </div>
+                    <div class="date-item">
+                        <span class="month">April</span>
+                        <span class="date">27</span>
+                        <span class="event">Chaitra Amavasya</span>
+                    </div>
+                    <div class="date-item">
+                        <span class="month">May</span>
+                        <span class="date">26</span>
+                        <span class="event">Vaishakha Amavasya</span>
+                    </div>
+                    <div class="date-item">
+                        <span class="month">June</span>
+                        <span class="date">25</span>
+                        <span class="event">Jyeshtha Amavasya</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Major Festivals 2025 -->
+            <div class="calendar-card" data-category="festival">
+                <div class="calendar-header">
+                    <i class="fas fa-star"></i>
+                    <h3>Major Festivals 2025</h3>
+                </div>
+                <div class="calendar-content">
+                    <div class="date-item">
+                        <span class="month">January</span>
+                        <span class="date">14</span>
+                        <span class="event">Makar Sankranti</span>
+                    </div>
+                    <div class="date-item">
+                        <span class="month">March</span>
+                        <span class="date">14</span>
+                        <span class="event">Holi</span>
+                    </div>
+                    <div class="date-item">
+                        <span class="month">April</span>
+                        <span class="date">9</span>
+                        <span class="event">Ram Navami</span>
+                    </div>
+                    <div class="date-item">
+                        <span class="month">August</span>
+                        <span class="date">15</span>
+                        <span class="event">Raksha Bandhan</span>
+                    </div>
+                    <div class="date-item">
+                        <span class="month">August</span>
+                        <span class="date">27</span>
+                        <span class="event">Krishna Janmashtami</span>
+                    </div>
+                    <div class="date-item">
+                        <span class="month">November</span>
+                        <span class="date">12</span>
+                        <span class="event">Diwali</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cow Related Festivals 2025 -->
+            <div class="calendar-card" data-category="cow-festivals">
+                <div class="calendar-header">
+                    <i class="fas fa-cow"></i>
+                    <h3>Cow Related Festivals 2025</h3>
+                </div>
+                <div class="calendar-content">
+                    <div class="date-item special">
+                        <span class="month">November</span>
+                        <span class="date">2</span>
+                        <span class="event">Gopashtami</span>
+                        <span class="description">Sacred day dedicated to Lord Krishna and cows</span>
+                    </div>
+                    <div class="date-item special">
+                        <span class="month">November</span>
+                        <span class="date">15</span>
+                        <span class="event">Govardhan Puja</span>
+                        <span class="description">Worship of Mount Govardhan and cows</span>
+                    </div>
+                    <div class="date-item special">
+                        <span class="month">Monthly</span>
+                        <span class="event">Gau Mata Puja</span>
+                        <span class="description">Every Purnima (Full Moon)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-
-
 
 <section class="side-social">
   <div class="social-card">
@@ -182,120 +344,126 @@
   </section>
     
 
-<section class="p-5 bg-light">
-    <div class="container justify-content-center">
-        <div class="row">
-            <h2 class="text-center mb-5">Event Details</h2>
-        </div>
 
-    </div>
+
+<section class="volunteer-section">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 mb-4 ">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title text-center">[Event Title]</h5>
-            <p><strong>Date:</strong> [Event Date]</p>
-            <p><strong>Time:</strong> [Event Time]</p>
-            <p><strong>Location:</strong> [Location Name] <a href="#">View Map</a></p>
-            <p><strong>Description:</strong> Detailed information about the event, including activities, highlights, and purpose. For example, cultural practices, notable speakers, etc.</p>
-            <div class="image-gallery">
-              <h6>Gallery</h6>
-              <!-- Placeholder images (add actual images) -->
-              <img src="https://via.placeholder.com/150" class="img-thumbnail mr-2" alt="Event Image">
-              <img src="https://via.placeholder.com/150" class="img-thumbnail mr-2" alt="Event Image">
-              <img src="https://via.placeholder.com/150" class="img-thumbnail mr-2" alt="Event Image">
-              <img src="https://via.placeholder.com/150" class="img-thumbnail mr-2" alt="Event Image">
-              <img src="https://via.placeholder.com/150" class="img-thumbnail mr-2" alt="Event Image">
-              <img src="https://via.placeholder.com/150" class="img-thumbnail mr-2" alt="Event Image">
-            </div>
-          </div>
-        </div>
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-8 text-center">
+        <h2 class="section-title">Volunteer Opportunities</h2>
+        <p class="lead">Join our community and make a difference in the lives of our sacred cows</p>
       </div>
-
-      <!-- Event Registration Form -->
-      <div class="container my-5">
-        <div class="col-md-12 mb-4">
-          <div class="card shadow-sm">
-            <div class="row no-gutters">
-              
-              <!-- Registration Form Section -->
-              <div class="col-md-8">
-                <div class="card-body">
-                  <h5 class="card-title text-center">Register for Event</h5>
-                  <form>
-                    <div class="form-group">
-                      <label for="name">Full Name</label>
-                      <input type="text" class="form-control" id="name" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="email">Email</label>
-                      <input type="email" class="form-control" id="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="participants">Number of Participants</label>
-                      <input type="number" class="form-control" id="participants" required>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block mt-3">Submit Registration</button>
-                  </form>
-                </div>
-              </div>
-      
-              <!-- Image/GIF Section -->
-              <div class="col-md-4">
-                <img src="./img/cow_with_there_baby_sitting_in_goushala.jpeg    " class="img-fluid h-100" alt="Event Image">
-                <!-- Alternatively, add a GIF with this format:
-                <img src="./img/your-image.gif" class="img-fluid h-100" alt="Event GIF"> -->
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-      
-
-    </div>
-  </div>
-</section>
-
-<section class="p-5 bg-white">
-    <div class="container justify-content-center">
-        <div class="row">
-            <h2 class="text-center mb-5">Volunteer Opportunities</h2>
-        </div>
     </div>
 
-
-  <div class="container">
     <div class="row">
-      <div class="col-md-6">
-        <div class="card shadow-sm mb-4">
-          <div class="card-body">
-            <h5 class="card-title text-center">Volunteer Roles</h5>
-            <p>Join us in making the event a success! We need volunteers for various roles, including event setup, registration assistance, and animal care. Volunteering offers hands-on experience and the opportunity to engage in meaningful work. You can contribute to the event's success by helping with event promotion, coordinating logistics, or providing support to our team. Your involvement will not only enhance the event experience but also contribute to the well-being of the animals in our care. We welcome your participation and look forward to working together to make this event a memorable one.</p>
+      <!-- Volunteer Roles Card -->
+      <div class="col-lg-6 mb-4">
+        <div class="volunteer-card">
+          <div class="volunteer-roles">
+            <h4 class="mb-4">Available Roles</h4>
+            
+            <div class="role-item">
+              <div class="role-icon">
+                <i class="fas fa-hands-helping"></i>
+              </div>
+              <div class="role-content">
+                <h5>Event Coordinator</h5>
+                <p>Help organize and manage spiritual events, festivals, and celebrations at our Gaushala</p>
+              </div>
+            </div>
 
+            <div class="role-item">
+              <div class="role-icon">
+                <i class="fas fa-heart"></i>
+              </div>
+              <div class="role-content">
+                <h5>Cow Care Assistant</h5>
+                <p>Assist in daily care, feeding, and maintenance of our beloved cows</p>
+              </div>
+            </div>
+
+            <div class="role-item">
+              <div class="role-icon">
+                <i class="fas fa-camera"></i>
+              </div>
+              <div class="role-content">
+                <h5>Documentation & Media</h5>
+                <p>Capture and document our activities through photography and content creation</p>
+              </div>
+            </div>
+
+            <div class="role-item">
+              <div class="role-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="role-content">
+                <h5>Visitor Guide</h5>
+                <p>Welcome and guide visitors, sharing knowledge about cow protection and our mission</p>
+              </div>
+            </div>
+
+            <h5 class="mt-4 mb-3">Benefits of Volunteering</h5>
+            <ul class="benefits-list">
+              <li><i class="fas fa-om"></i> Spiritual growth and connection</li>
+              <li><i class="fas fa-star"></i> Valuable experience and skills</li>
+              <li><i class="fas fa-heart"></i> Make a positive impact</li>
+              <li><i class="fas fa-certificate"></i> Recognition and appreciation</li>
+            </ul>
           </div>
         </div>
       </div>
 
-      <div class="col-md-6">
-        <div class="card shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title text-center">Volunteer Signup</h5>
-            <form>
-              <div class="form-group">
-                <label for="volunteerName">Full Name</label>
+      <!-- Volunteer Signup Form -->
+      <div class="col-lg-6">
+        <div class="volunteer-card">
+          <div class="volunteer-form">
+            <h4 class="mb-4">Join Our Team</h4>
+            <form id="volunteerForm">
+              <div class="form-floating mb-3">
                 <input type="text" class="form-control" id="volunteerName" placeholder="Your Name" required>
+                <label for="volunteerName">Full Name</label>
               </div>
-              <div class="form-group">
-                <label for="volunteerEmail">Email</label>
+
+              <div class="form-floating mb-3">
                 <input type="email" class="form-control" id="volunteerEmail" placeholder="Your Email" required>
+                <label for="volunteerEmail">Email Address</label>
               </div>
-              <div class="form-group">
-                <label for="availability">Availability</label>
-                <input type="text" class="form-control" id="availability" placeholder="Your Availability" required>
+
+              <div class="form-floating mb-3">
+                <input type="tel" class="form-control" id="volunteerPhone" placeholder="Phone Number" required>
+                <label for="volunteerPhone">Phone Number</label>
               </div>
-              <button type="submit" class="btn btn-primary btn-block mt-3">Sign Up to Volunteer</button>
+
+              <div class="form-floating mb-3">
+                <select class="form-control" id="volunteerRole" required>
+                  <option value="">Select a Role</option>
+                  <option value="event">Event Coordinator</option>
+                  <option value="care">Cow Care Assistant</option>
+                  <option value="media">Documentation & Media</option>
+                  <option value="guide">Visitor Guide</option>
+                </select>
+                <label for="volunteerRole">Preferred Role</label>
+              </div>
+
+              <div class="form-floating mb-3">
+                <select class="form-control" id="volunteerAvailability" required>
+                  <option value="">Select Availability</option>
+                  <option value="weekday">Weekdays</option>
+                  <option value="weekend">Weekends</option>
+                  <option value="both">Both</option>
+                </select>
+                <label for="volunteerAvailability">Availability</label>
+              </div>
+
+              <div class="form-floating mb-4">
+                <textarea class="form-control" id="volunteerMessage" style="height: 100px" placeholder="Tell us about yourself"></textarea>
+                <label for="volunteerMessage">Why do you want to volunteer?</label>
+              </div>
+
+              <button type="submit" class="volunteer-btn">
+                Submit Application
+                <i class="fas fa-arrow-right ms-2"></i>
+              </button>
             </form>
           </div>
         </div>
@@ -304,88 +472,858 @@
   </div>
 </section>
 
+<!-- Footer -->
 <footer class="text-center text-lg-start text-muted">
     <!-- Section: Social media -->
     <section class="d-flex justify-content-center p-4 w-100 border-bottom">
-      <!-- Social Media Icons -->
-      <div class="text-center">
-        <!-- <span class="me-3 d-none d-lg-inline">Get connected with us on social networks:</span> -->
-        <a href="#" class="me-4 text-reset">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="me-4 text-reset">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="me-4 text-reset">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="#" class="me-4 text-reset">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
+        <!-- Social Media Icons -->
+        <div class="text-center">
+            <a href="#" class="me-4 text-reset">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="me-4 text-reset">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="me-4 text-reset">
+                <i class="fab fa-google"></i>
+            </a>
+            <a href="#" class="me-4 text-reset">
+                <i class="fab fa-instagram"></i>
+            </a>
+        </div>
     </section>
-    <!-- Section: Social media -->
-  
+
     <!-- Section: Links  -->
     <section class="w-100">
-      <div class="container text-center text-md-start mt-5">
-        <!-- Grid row -->
-        <div class="row mt-3">
-          <!-- Company Name and Description -->
-          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <h6 class="text-uppercase fw-bold mb-4"><i class="fa-solid fa-cow me-3"></i></i>Goushala</h6>
-            <p>
-  Gau Shala is a sacred haven for cows, where they are protected, cared for, and revered. Our mission is to preserve traditional values and promote the well-being of these gentle creatures.
-</p>
-          </div>
-  
-          <!-- Useful Links -->
-          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-  <h6 class="text-uppercase fw-bold mb-2">Gaushala Links</h6>
-  <p><a href="#!" class="text-reset">Adopt a Cow</a></p>
-  <p><a href="#!" class="text-reset">Donation</a></p>
-  <p><a href="#!" class="text-reset">Volunteer</a></p>
-  <p><a href="#!" class="text-reset">Events</a></p>
-  <p><a href="#!" class="text-reset">Gallery</a></p>
-  <p><a href="#!" class="text-reset">Testimonials</a></p>
-</div>
-  
-          <!-- Contact Information -->
-          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i class="fas fa-home me-3"></i> At post Pimpalgaon Baswant, Village/Taluka/Block: Niphad, District: Nashik, State: Maharashtra</p>
-            <p><i class="fas fa-envelope me-3"></i> info@example.com</p>
-            <p><i class="fas fa-phone me-3"></i> +91 9823079708</p>
-            <p><i class="fas fa-print me-3"></i> +91 9823079708</p>
-          </div>
+        <div class="container text-center text-md-start mt-5">
+            <!-- Grid row -->
+            <div class="row mt-3">
+                <!-- Company Name and Description -->
+                <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">
+                        <i class="fa-solid fa-cow me-3"></i>Goushala
+                    </h6>
+                    <p>
+                        Gau Shala is a sacred haven for cows, where they are protected, cared for, and revered. Our mission is to preserve traditional values and promote the well-being of these gentle creatures.
+                    </p>
+                </div>
+
+                <!-- Useful Links -->
+                <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                    <h6 class="text-uppercase fw-bold mb-2">Gaushala Links</h6>
+                    <p><a href="#!" class="text-reset">Adopt a Cow</a></p>
+                    <p><a href="#!" class="text-reset">Donation</a></p>
+                    <p><a href="#!" class="text-reset">Volunteer</a></p>
+                    <p><a href="#!" class="text-reset">Events</a></p>
+                    <p><a href="#!" class="text-reset">Gallery</a></p>
+                    <p><a href="#!" class="text-reset">Testimonials</a></p>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                    <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                    <p><i class="fas fa-home me-3"></i> At post Pimpalgaon Baswant, Village/Taluka/Block: Niphad, District: Nashik, State: Maharashtra</p>
+                    <p><i class="fas fa-envelope me-3"></i> info@example.com</p>
+                    <p><i class="fas fa-phone me-3"></i> +91 9823079708</p>
+                    <p><i class="fas fa-print me-3"></i> +91 9823079708</p>
+                </div>
+            </div>
         </div>
-        <!-- Grid row -->
-      </div>
     </section>
-    <!-- Section: Links  -->
-  </footer>
+</footer>
 
-  <script>
-    $(document).ready(function () {
-  // Hover Effect for Cards
-  $(".hover-card").hover(
-    function () {
-      $(this).addClass("shadow-lg");
-    },
-    function () {
-      $(this).removeClass("shadow-lg");
+<style>
+/* Language Selector Styles */
+.language-selector {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.language-btn {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    background: #ff8c00;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+    background: #ff6b00;
+    transform: scale(1.05);
+}
+
+/* Enhanced Header Styles */
+.navbar {
+    background: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: #ff8c00 !important;
+}
+
+.nav-link {
+    color: #333 !important;
+    font-weight: 500;
+    position: relative;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #ff8c00;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+    width: 80%;
+}
+
+.nav-link:hover {
+    color: #ff8c00 !important;
+}
+
+/* Footer Styles */
+footer {
+    background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: 'ॐ';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 200px;
+    color: rgba(255, 140, 0, 0.1);
+    z-index: 0;
+    opacity: 0.5;
+}
+
+footer .text-reset {
+    color: #333 !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+footer .text-reset:hover {
+    color: #ff8c00 !important;
+    transform: translateX(5px);
+}
+
+footer .social-media a {
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 140, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+footer .social-media a:hover {
+    background: #ff8c00;
+    color: white !important;
+    transform: translateY(-3px);
+}
+
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: rgba(255, 255, 255, 0.98);
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-  );
 
-  // Apply Filters Button Click
-  $("#applyFilters").click(function () {
-    const eventType = $("#eventType").val();
-    const timeFrame = $("#timeFrame").val();
-    alert(`Filters Applied:\nEvent Type: ${eventType}\nTimeframe: ${timeFrame}`);
-  });
+    .nav-link {
+        padding: 0.8rem 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .language-selector {
+        top: 10px;
+        right: 10px;
+        padding: 5px;
+    }
+
+    .language-btn {
+        padding: 3px 8px;
+        font-size: 0.9em;
+    }
+
+    .navbar-brand img {
+        height: 50px;
+    }
+}
+
+/* New Calendar Styles */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.calendar-card {
+    background: linear-gradient(145deg, #ffffff, #f5f5f5);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.calendar-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(255, 140, 0, 0.2);
+}
+
+.calendar-header {
+    background: linear-gradient(135deg, #ff8c00, #ffa500);
+    color: white;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.calendar-header::before {
+    content: 'ॐ';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5rem;
+    opacity: 0.1;
+}
+
+.calendar-header i {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.calendar-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.calendar-content {
+    padding: 1.5rem;
+}
+
+.date-item {
+    background: white;
+    border-radius: 15px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+    animation: fadeIn 0.5s ease-out forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.date-item:hover {
+    transform: translateX(10px);
+    background: linear-gradient(145deg, #ffffff, #fff5e6);
+}
+
+.date-item.special {
+    border-left: 4px solid #ff8c00;
+}
+
+.month {
+    color: #ff8c00;
+    font-weight: 600;
+    display: block;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.date {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+    display: block;
+    margin: 0.3rem 0;
+}
+
+.event {
+    color: #666;
+    font-size: 1rem;
+    display: block;
+}
+
+.description {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 0.5rem;
+    display: block;
+    font-style: italic;
+}
+
+/* Filter Buttons */
+.filter-buttons {
+    margin-bottom: 2rem;
+}
+
+.filter-buttons .btn {
+    border-radius: 25px;
+    padding: 0.8rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-buttons .btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.filter-buttons .btn:hover::before {
+    left: 100%;
+}
+
+.filter-buttons .btn.active {
+    background: #ff8c00;
+    color: white;
+    box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Animation Delays */
+.calendar-card:nth-child(1) { animation-delay: 0.2s; }
+.calendar-card:nth-child(2) { animation-delay: 0.4s; }
+.calendar-card:nth-child(3) { animation-delay: 0.6s; }
+
+.date-item:nth-child(1) { animation-delay: 0.1s; }
+.date-item:nth-child(2) { animation-delay: 0.2s; }
+.date-item:nth-child(3) { animation-delay: 0.3s; }
+.date-item:nth-child(4) { animation-delay: 0.4s; }
+.date-item:nth-child(5) { animation-delay: 0.5s; }
+.date-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .calendar-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .filter-buttons .btn {
+        margin: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+
+    .calendar-header h3 {
+        font-size: 1.2rem;
+    }
+
+    .date {
+        font-size: 1.2rem;
+    }
+}
+
+/* Hover Effects */
+.date-item:hover .event {
+    color: #ff8c00;
+}
+
+.date-item:hover .description {
+    color: #666;
+}
+
+.calendar-card:hover .calendar-header {
+    background: linear-gradient(135deg, #ffa500, #ff8c00);
+}
+
+/* Additional Decorative Elements */
+.calendar-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    pointer-events: none;
+}
+
+.date-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 140, 0, 0.2), transparent);
+}
+
+/* Birthday Hall Section Styles */
+.birthday-hall-card {
+  background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(255, 140, 0, 0.15);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.birthday-hall-card::before {
+  content: 'ॐ';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 200px;
+  color: rgba(255, 140, 0, 0.1);
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.celebration-image {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.celebration-image:hover {
+  transform: translateY(-10px);
+}
+
+.celebration-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.celebration-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  padding: 20px;
+  color: white;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+}
+
+.celebration-image:hover .celebration-overlay {
+  transform: translateY(0);
+}
+
+.celebration-text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.celebration-details {
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.celebration-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.celebration-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 15px;
+  background: #fff5e6;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.celebration-list li:hover {
+  transform: translateX(10px);
+  background: #ffe5cc;
+}
+
+.celebration-list li i {
+  width: 40px;
+  height: 40px;
+  background: #ff8c00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.book-celebration-btn {
+  background: #ff8c00;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.book-celebration-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+}
+
+.book-celebration-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.book-celebration-btn:hover::before {
+  left: 100%;
+}
+
+/* Modal Styles */
+.modal-content {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #ff8c00, #ffa500);
+  color: white;
+  border: none;
+  padding: 20px;
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+.modal-footer {
+  border: none;
+  padding: 20px;
+}
+
+.modal-body .form-control {
+  border: 2px solid #eee;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 15px;
+}
+
+.modal-body .form-control:focus {
+  border-color: #ff8c00;
+  box-shadow: 0 0 10px rgba(255, 140, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .birthday-hall-card {
+    padding: 20px;
+  }
+  
+  .celebration-image img {
+    height: 300px;
+  }
+  
+  .celebration-details {
+    margin-top: 30px;
+  }
+}
+
+/* Volunteer Section Styles */
+.volunteer-section {
+  background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.volunteer-section::before {
+  content: 'ॐ';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  font-size: 300px;
+  color: rgba(255, 140, 0, 0.05);
+  z-index: 0;
+}
+
+.volunteer-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(255, 140, 0, 0.1);
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.volunteer-card:hover {
+  transform: translateY(-10px);
+}
+
+.volunteer-roles {
+  padding: 30px;
+  background: linear-gradient(135deg, #fff5e6, #fff);
+  border-radius: 20px;
+}
+
+.role-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.role-item:hover {
+  transform: translateX(10px);
+  background: #fff5e6;
+}
+
+.role-icon {
+  width: 50px;
+  height: 50px;
+  background: #ff8c00;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: white;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.role-content h5 {
+  margin: 0 0 5px;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.role-content p {
+  margin: 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.volunteer-form {
+  padding: 30px;
+  background: white;
+  border-radius: 20px;
+}
+
+.form-floating {
+  margin-bottom: 20px;
+}
+
+.form-floating > .form-control {
+  padding: 1.5rem 1rem;
+  height: calc(3.5rem + 2px);
+  border: 2px solid #eee;
+  border-radius: 10px;
+}
+
+.form-floating > label {
+  padding: 1rem;
+}
+
+.volunteer-btn {
+  background: linear-gradient(135deg, #ff8c00, #ffa500);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  width: 100%;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.volunteer-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+}
+
+.benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.benefits-list li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.benefits-list li i {
+  color: #ff8c00;
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .volunteer-section {
+    padding: 40px 0;
+  }
+  
+  .volunteer-card {
+    margin-bottom: 30px;
+  }
+}
+</style>
+
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,mr',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+
+function changeLanguage(lang) {
+    const select = document.querySelector('.goog-te-combo');
+    if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event('change'));
+    }
+}
+
+$(document).ready(function() {
+    // Add hover effect for nav links
+    $(".nav-link").hover(function() {
+        $(this).css("letter-spacing", "1px");
+    }, function() {
+        $(this).css("letter-spacing", "0");
+    });
+
+    // Smooth scrolling for anchor links
+    $('a.nav-link').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 800);
+    });
+
+    // Filter functionality
+    $('.filter-buttons .btn').click(function() {
+        $('.filter-buttons .btn').removeClass('active');
+        $(this).addClass('active');
+        
+        const filter = $(this).data('filter');
+        
+        if(filter === 'all') {
+            $('.calendar-card').show();
+        } else {
+            $('.calendar-card').hide();
+            $('.calendar-card[data-category="' + filter + '"]').show();
+        }
+
+        // Trigger animation for visible cards
+        $('.calendar-card:visible').each(function(index) {
+            $(this).css('animation-delay', `${index * 0.2}s`);
+            $(this).css('animation', 'none').height(); // Trigger reflow
+            $(this).css('animation', '');
+        });
+    });
+
+    // Hover effects for date items
+    $('.date-item').hover(
+        function() {
+            $(this).find('.description').slideDown(200);
+        },
+        function() {
+            $(this).find('.description').slideUp(200);
+        }
+    );
 });
-
-  </script>
+</script>
 
 <!-- Include jQuery and Bootstrap JS for form handling and interactions -->
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

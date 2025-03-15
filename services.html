@@ -12,14 +12,27 @@
       </head>
 <body>
    <!-- Hero Section -->
-  
+   <!-- <section class="hero py-3">
+     <div class="container text-left flex-row-reverse d-flex">
+       <h5 class="mx-2"><i class="fas fa-envelope me-2"></i>gorakshak.socialmedia@gmail.com</h5>
+       <h5 class="mx-2"><i class="fas fa-phone me-2"></i>+91 9823079708</h5>
+       <a href="#donations" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#donateNowModal">
+         <i class="fas fa-heart me-2"></i>Donate Now
+       </a>
+       <a href="#visits" class="btn btn-primary mx-2" data-bs-toggle="modal" data-bs-target="#bookVisitModal">
+         <i class="fas fa-calendar-check me-2"></i>Book a visit
+       </a>
+     </div>
+   </section> -->
+
   <!-- Header Section -->
   <header class="py-3 bg-light">
     <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-          <a href="index.html" class="navbar-brand">
-            <img src="./img/logo.png" alt="Gau Shala Logo" style="height: 70px; ">
-          </a>
+        <a href="index.html" class="navbar-brand">
+          <img src="./img/logo.png" alt="Gau Shala Logo" style="height: 70px;">
+          <span class="ms-2 om-symbol">ॐ</span>
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -27,7 +40,7 @@
           <ul class="navbar-nav ms-auto">
             <li class="nav-item"><a class="nav-link" href="./index.html">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="./about.html">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="./services.html">Services</a></li>
+            <li class="nav-item"><a class="nav-link active" href="./services.html">Services</a></li>
             <li class="nav-item"><a class="nav-link" href="./donation.html">Donations</a></li>
             <li class="nav-item"><a class="nav-link" href="./events.html">Events</a></li>
             <li class="nav-item"><a class="nav-link" href="./gallery.html">Gallery</a></li>
@@ -38,220 +51,681 @@
     </nav>
   </header>
 
-<!-- List of Services Section -->
-<section class="p-5 bg-back services-section">
-  <div class="container text-center justify-content-center">
-      <div class="row">
-          <h2 class="text-center mb-4 services-heading">Our Services</h2>
-      </div>
-  </div>
-
-  <div class="container">
-    <div class="row text-center">
-        <!-- Funeral Program Service -->
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm service-card">
-                <!-- Image Section -->
-                <div class="img-ser d-flex justify-content-center align-items-center">
-                    <img src="./img/a_cow_is_sitting_in_gaushala.jpeg" class="card-img-top" alt="Funeral Service">
-                </div>
-                <!-- Text Section -->
-                <div class="card-body text-center">
-                    <h5 class="card-title">Funeral Program Services</h5>
-                </div>
-            </div>
-        </div>
-
-        <!-- Cattle Feed Management -->
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm service-card">
-                <!-- Image Section -->
-                <div class="img-ser d-flex justify-content-center align-items-center">
-                    <img src="./img/indian_cows_in_gaushala.jpeg" class="card-img-top" alt="Cattle Feed Management">
-                </div>
-                <!-- Text Section -->
-                <div class="card-body text-center">
-                    <h5 class="card-title">Cattle Feed Management</h5>
-                  
-                </div>
-            </div>
-        </div>
-
-        <!-- Educational Programs -->
-        <div class="col-md-4 mb-4">
-            <div class="card shadow-sm service-card">
-                <!-- Image Section -->
-                <div class="img-ser d-flex justify-content-center align-items-center">
-                    <img src="./img/indian_cows_in_gaushala.jpeg" class="card-img-top" alt="Educational Programs">
-                </div>
-                <!-- Text Section -->
-                <div class="card-body text-center">
-                    <h5 class="card-title">Educational Programs</h5>
-                  
-                </div>
-            </div>
-        </div>
-    </div>
+<!-- Language Selector -->
+<div class="language-selector">
+  <button class="language-btn" onclick="changeLanguage('en')">English</button>
+  <button class="language-btn" onclick="changeLanguage('hi')">हिंदी</button>
+  <button class="language-btn" onclick="changeLanguage('mr')">मराठी</button>
 </div>
 
-</section>
-<section class="side-social">
-    <div class="social-card">
-      <ul>
-        <li class="iso-pro">
-          <span></span>
-          <span></span>
-          <span></span>
-          <a href="">
-            <svg
-              viewBox="0 0 320 512"
-              xmlns="http://www.w3.org/2000/svg"
-              class="svg"
-            >
-              <path
-                d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
-              ></path></svg
-          ></a>
-           
-        </li>
-        <li class="iso-pro">
-          <span></span>
-          <span></span>
-          <span></span>
-          <a href="">
-            <svg
-              class="svg"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
-            >
-              <path
-                d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
-              ></path>
-            </svg>
-          </a>
-           
-        </li>
-        <li class="iso-pro">
-          <span></span>
-          <span></span>
-          <span></span>
-          <a href="">
-            <svg
-              class="svg"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-            >
-              <path
-                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-              ></path>
-            </svg>
-          </a>
-           
-        </li>
-      </ul>
+<!-- Google Translate Element -->
+<div id="google_translate_element" style="display: none;"></div>
+
+<!-- Services Introduction Section -->
+<section class="services-intro p-5">
+  <div class="container">
+    <div class="services-header text-center">
+      <div class="om-symbol-large">ॐ</div>
+      <h2 class="section-title">Our Sacred Services</h2>
+      <div class="divine-separator">
+        <span class="separator-line"></span>
+        <i class="fas fa-om"></i>
+        <span class="separator-line"></span>
+      </div>
+      <p class="lead devotional-text">
+        "गौ सेवा परम धर्म है" <br>
+        <span class="marathi-text">गाय सेवा हा सर्वोच्च धर्म आहे</span>
+        <span class="english-translation">(Service to Cows is the Supreme Dharma)</span>
+      </p>
     </div>
-    
-    
-    </section>
-      
-<!-- Adopt-a-Cow Program Section -->
-<section class="p-5 bg-light">
-  <div class="container">
-      <div class="text-center mb-4">
-          <h2 class="adopt-title">Adopt-a-Cow Program</h2>
-          <p class="lead adopt-subtitle">Sponsor a cow and make a meaningful contribution to its welfare. Your sponsorship ensures the best care for our cows and fosters a sacred bond between you and Gau Mata.</p>
-      </div>
-  </div>
-
-  <div class="container">
-      <!-- Gallery Section -->
-      <div class="row text-center justify-content-between">
-          <!-- Sponsorship Explanation -->
-          <div class="col-md-6 mb-4 ">
-              <div class="card shadow-sm h-100 custom-card justify-content-center w-100">
-                  <div class="card-body d-flex flex-column">
-                      <h5 class="card-title">How It Works</h5>
-                      <p class="card-text">By sponsoring a cow, you ensure it receives nutritious food, shelter, and regular veterinary care. Your sponsorship helps us provide ongoing support for the cows, and you can follow the progress of your adopted cow with regular updates.</p>
-                  </div>
-              </div>
-          </div>
-          <!-- Benefits for Sponsors -->
-          <div class="col-md-6 mb-4 ">
-              <div class="card shadow-sm h-100 custom-card justify-content-center w-100">
-                  <div class="card-body d-flex flex-column">
-                      <h5 class="card-title">Benefits for Sponsors</h5>
-                      <ul class="list-unstyled">
-                          <li>Personalized donation certificate</li>
-                          <li>Regular updates on your sponsored cow</li>
-                          <li>Exclusive access to annual sponsor events</li>
-                          <li>Visit your adopted cow at the Gau Shala</li>
-                      </ul>
-                      <a href="#sponsor" class="btn btn-primary mt-auto" data-bs-toggle="modal" data-bs-target="#adoptCowModal">Adopt a Cow</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <div class="modal fade" id="adoptCowModal" tabindex="-1" aria-labelledby="adoptCowModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <!-- Modal Header -->
-              <div class="modal-header">
-                  <h5 class="modal-title" id="adoptCowModalLabel">Adopt a Cow</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              
-              <!-- Modal Body -->
-              <div class="modal-body">
-                  <form id="adoptCowForm">
-                      <div class="mb-3">
-                          <label for="adopterName" class="form-label">Full Name</label>
-                          <input type="text" class="form-control" id="adopterName" placeholder="Enter your full name" required>
-                      </div>
-                      <div class="mb-3">
-                          <label for="adopterEmail" class="form-label">Email Address</label>
-                          <input type="email" class="form-control" id="adopterEmail" placeholder="Enter your email" required>
-                      </div>
-                      <div class="mb-3">
-                          <label for="adopterPhone" class="form-label">Phone Number</label>
-                          <input type="tel" class="form-control" id="adopterPhone" placeholder="Enter your phone number" required>
-                      </div>
-                      <div class="mb-3">
-                          <label for="cowSelection" class="form-label">Select a Cow</label>
-                          <select class="form-select" id="cowSelection" required>
-                              <option value="" disabled selected>Choose a cow to adopt</option>
-                              <option value="Cow1">Gauri</option>
-                              <option value="Cow2">Kamdhenu</option>
-                              <option value="Cow3">Nandini</option>
-                          </select>
-                      </div>
-                      <div class="mb-3">
-                          <label for="adoptionPeriod" class="form-label">Adoption Period</label>
-                          <select class="form-select" id="adoptionPeriod" required>
-                              <option value="" disabled selected>Select the adoption period</option>
-                              <option value="6_months">6 Months</option>
-                              <option value="12_months">1 Year</option>
-                              <option value="lifetime">Lifetime</option>
-                          </select>
-                      </div>
-                      <div class="mb-3">
-                          <label for="adoptionMessage" class="form-label">Message (Optional)</label>
-                          <textarea class="form-control" id="adoptionMessage" rows="3" placeholder="Enter any additional details"></textarea>
-                      </div>
-                  </form>
-              </div>
-
-              <!-- Modal Footer -->
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <button type="submit" class="btn btn-success" form="adoptCowForm">Adopt Now</button>
-              </div>
-          </div>
-      </div>
   </div>
 </section>
-  
+
+<!-- List of Services Section -->
+<section class="services-section p-5">
+  <div class="container">
+    <div class="row text-center">
+      <!-- Funeral Program Service -->
+      <div class="col-md-4 mb-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-om"></i>
+          </div>
+          <div class="service-content">
+            <h3>Funeral Program Services</h3>
+            <p class="marathi-text">अंत्यसंस्कार सेवा</p>
+            <p class="service-description">Sacred rituals and ceremonies performed with utmost devotion and respect.</p>
+          </div>
+          <div class="card-decoration"></div>
+        </div>
+      </div>
+
+      <!-- Cattle Feed Management -->
+      <div class="col-md-4 mb-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-leaf"></i>
+          </div>
+          <div class="service-content">
+            <h3>Cattle Feed Management</h3>
+            <p class="marathi-text">गुरांचे खाद्य व्यवस्थापन</p>
+            <p class="service-description">Nutritious and balanced diet for our sacred cows, prepared with love and care.</p>
+          </div>
+          <div class="card-decoration"></div>
+        </div>
+      </div>
+
+      <!-- Educational Programs -->
+      <div class="col-md-4 mb-4">
+        <div class="service-card">
+          <div class="service-icon">
+            <i class="fas fa-book-reader"></i>
+          </div>
+          <div class="service-content">
+            <h3>Educational Programs</h3>
+            <p class="marathi-text">शैक्षणिक कार्यक्रम</p>
+            <p class="service-description">Learning programs that connect people with our ancient traditions and cow protection.</p>
+          </div>
+          <div class="card-decoration"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Adopt-a-Cow Program Section -->
+<section class="adopt-cow-section p-5">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2 class="adopt-title">Adopt a Cow Program</h2>
+      <p class="marathi-text mb-2">गाय दत्तक घ्या</p>
+      <div class="divine-separator">
+        <span class="separator-line"></span>
+        <i class="fas fa-cow"></i>
+        <span class="separator-line"></span>
+      </div>
+      <p class="lead adopt-subtitle">
+        Support our divine mission by adopting a cow. Your contribution ensures their well-being and spiritual connection.
+        <br>
+        <span class="marathi-text">गाईंच्या कल्याणासाठी आणि आध्यात्मिक जोडणीसाठी गाय दत्तक घ्या</span>
+      </p>
+    </div>
+
+    <div class="row mt-5">
+      <!-- How It Works -->
+      <div class="col-md-6 mb-4">
+        <div class="adopt-card">
+          <div class="card-icon">
+            <i class="fas fa-info-circle"></i>
+          </div>
+          <h3>How It Works</h3>
+          <p class="marathi-text">कसे कार्य करते</p>
+          <ul class="adoption-features">
+            <li><i class="fas fa-check"></i> Regular updates about your adopted cow</li>
+            <li><i class="fas fa-check"></i> Personalized donation certificate</li>
+            <li><i class="fas fa-check"></i> Special access during festivals</li>
+            <li><i class="fas fa-check"></i> Spiritual benefits of Gau Seva</li>
+          </ul>
+          <div class="card-decoration"></div>
+        </div>
+      </div>
+
+      <!-- Benefits -->
+      <div class="col-md-6 mb-4">
+        <div class="adopt-card">
+          <div class="card-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>Benefits for Sponsors</h3>
+          <p class="marathi-text">दत्तक घेणाऱ्यांसाठी फायदे</p>
+          <ul class="adoption-features">
+            <li><i class="fas fa-star"></i> Monthly sacred prasad</li>
+            <li><i class="fas fa-star"></i> Priority in temple ceremonies</li>
+            <li><i class="fas fa-star"></i> Exclusive event invitations</li>
+            <li><i class="fas fa-star"></i> Spiritual guidance sessions</li>
+          </ul>
+          <a href="#sponsor" class="btn btn-adopt" data-bs-toggle="modal" data-bs-target="#adoptCowModal">
+            Adopt a Cow
+            <span class="marathi-text">गाय दत्तक घ्या</span>
+          </a>
+          <div class="card-decoration"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Enhanced Services Styles */
+.services-intro {
+    background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.om-symbol-large {
+    font-size: 150px;
+    color: rgba(255, 140, 0, 0.1);
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.section-title {
+    color: #ff8c00;
+    font-size: 3rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 30px;
+}
+
+.divine-separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+.separator-line {
+    height: 2px;
+    width: 100px;
+    background: linear-gradient(90deg, transparent, #ff8c00, transparent);
+    margin: 0 15px;
+}
+
+.marathi-text {
+    font-size: 1.2rem;
+    color: #666;
+    margin: 10px 0;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+}
+
+.devotional-text {
+    font-size: 2rem;
+    color: #333;
+    margin-top: 30px;
+}
+
+/* Service Cards */
+.service-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px 30px;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.service-card::before {
+    content: 'ॐ';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    font-size: 100px;
+    color: rgba(255, 140, 0, 0.05);
+    transition: all 0.4s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 140, 0, 0.2);
+}
+
+.service-card:hover::before {
+    transform: scale(1.2) rotate(15deg);
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 140, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px;
+    transition: all 0.4s ease;
+}
+
+.service-icon i {
+    font-size: 35px;
+    color: #ff8c00;
+    transition: all 0.4s ease;
+}
+
+.service-card:hover .service-icon {
+    background: #ff8c00;
+    transform: rotate(360deg);
+}
+
+.service-card:hover .service-icon i {
+    color: white;
+}
+
+.service-content h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.service-description {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Adopt-a-Cow Section */
+.adopt-cow-section {
+    background: linear-gradient(135deg, #fff5e6 0%, #fff 100%);
+    padding: 100px 0;
+    position: relative;
+}
+
+.adopt-title {
+    color: #ff8c00;
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.adopt-subtitle {
+    color: #666;
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.adopt-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+}
+
+.adopt-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255, 140, 0, 0.1), transparent);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.adopt-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255, 140, 0, 0.2);
+}
+
+.adopt-card:hover::before {
+    opacity: 1;
+}
+
+.card-icon {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 140, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    transition: all 0.4s ease;
+}
+
+.card-icon i {
+    font-size: 30px;
+    color: #ff8c00;
+    transition: all 0.4s ease;
+}
+
+.adopt-card:hover .card-icon {
+    background: #ff8c00;
+    transform: rotate(360deg);
+}
+
+.adopt-card:hover .card-icon i {
+    color: white;
+}
+
+.adoption-features {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.adoption-features li {
+    margin: 15px 0;
+    color: #666;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.adoption-features li i {
+    color: #ff8c00;
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.btn-adopt {
+    background: linear-gradient(45deg, #ff8c00, #ff6b00);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-adopt:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 140, 0, 0.3);
+    color: white;
+}
+
+.btn-adopt .marathi-text {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.card-decoration {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50" y="50" text-anchor="middle" dy=".35em" font-size="60" fill="rgba(255,140,0,0.1)">ॐ</text></svg>');
+    background-size: contain;
+    opacity: 0.5;
+    transition: all 0.4s ease;
+}
+
+.adopt-card:hover .card-decoration {
+    transform: rotate(15deg) scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2.2rem;
+    }
+    
+    .devotional-text {
+        font-size: 1.6rem;
+    }
+    
+    .service-card,
+    .adopt-card {
+        padding: 30px;
+    }
+    
+    .adoption-features li {
+        font-size: 1rem;
+    }
+}
+
+/* Hero Section Styles */
+.hero {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.hero h5 {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.hero .btn {
+  font-size: 0.9rem;
+  padding: 0.375rem 1rem;
+  background: linear-gradient(45deg, #ff8c00, #ff6b00);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.hero .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 140, 0, 0.3);
+}
+
+/* Header Styles */
+.main-header {
+  background: white;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.logo-img {
+  height: 70px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand:hover .logo-img {
+  transform: scale(1.05);
+}
+
+.om-symbol {
+  font-size: 2rem;
+  color: #ff8c00;
+  margin-left: 10px;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover .om-symbol {
+  transform: rotate(360deg);
+  color: #ff6b00;
+}
+
+.nav-link {
+  color: #333;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  margin: 0 0.2rem;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(45deg, #ff8c00, #ff6b00);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: #ff8c00;
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+@media (max-width: 991.98px) {
+  .hero .container {
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero h5, .hero .btn {
+    margin: 0.5rem 0;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  .nav-link {
+    padding: 0.7rem 1rem;
+    text-align: center;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: rgba(255, 140, 0, 0.1);
+    border-radius: 5px;
+  }
+}
+
+/* Language Selector Styles */
+.language-selector {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.language-btn {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background: #ff8c00;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+  background: #ff6b00;
+  transform: scale(1.05);
+}
+
+/* Enhanced Header Styles */
+.navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #ff8c00 !important;
+}
+
+.nav-link {
+  color: #333 !important;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: #ff8c00;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+.nav-link:hover {
+  color: #ff8c00 !important;
+}
+
+.navbar-toggler {
+  border: none;
+  padding: 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.om-symbol {
+  font-size: 2em;
+  color: #ff8c00;
+  text-align: center;
+  margin: 20px 0;
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover .om-symbol {
+  transform: rotate(360deg);
+  color: #ff6b00;
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    background: rgba(255, 255, 255, 0.98);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-link {
+    padding: 0.8rem 1rem;
+  }
+
+  .language-selector {
+    top: 10px;
+    right: 10px;
+    padding: 5px;
+  }
+
+  .language-btn {
+    padding: 3px 8px;
+    font-size: 0.9em;
+  }
+
+  .navbar-brand img {
+    height: 50px;
+  }
+}
+</style>
 
 <!-- School Visits and Field Trips Section -->
 <section class="p-5 bg-back unique-school-visit">
@@ -305,65 +779,67 @@
 
   
 
-<footer class="text-center text-lg-start text-muted">
+<footer class="text-center text-lg-start text-muted footer-section">
     <!-- Section: Social media -->
-    <section class="d-flex justify-content-center p-4 w-100 border-bottom">
-      <!-- Social Media Icons -->
+    <section class="d-flex justify-content-center p-4 border-bottom social-section">
       <div class="text-center">
-        <!-- <span class="me-3 d-none d-lg-inline">Get connected with us on social networks:</span> -->
-        <a href="#" class="me-4 text-reset">
+        <a href="#" class="me-4 text-reset social-icon">
           <i class="fab fa-facebook-f"></i>
         </a>
-        <a href="#" class="me-4 text-reset">
+        <a href="#" class="me-4 text-reset social-icon">
           <i class="fab fa-twitter"></i>
         </a>
-        <a href="#" class="me-4 text-reset">
-          <i class="fab fa-google"></i>
-        </a>
-        <a href="#" class="me-4 text-reset">
+        <a href="#" class="me-4 text-reset social-icon">
           <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="me-4 text-reset social-icon">
+          <i class="fab fa-youtube"></i>
         </a>
       </div>
     </section>
     <!-- Section: Social media -->
   
-    <!-- Section: Links  -->
-    <section class="w-100">
+    <!-- Section: Links -->
+    <section class="footer-links">
       <div class="container text-center text-md-start mt-5">
-        <!-- Grid row -->
         <div class="row mt-3">
-          <!-- Company Name and Description -->
+          <!-- Gaushala Info -->
           <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-            <h6 class="text-uppercase fw-bold mb-4"><i class="fa-solid fa-cow me-3"></i></i>Goushala</h6>
-            <p>
-  Gau Shala is a sacred haven for cows, where they are protected, cared for, and revered. Our mission is to preserve traditional values and promote the well-being of these gentle creatures.
-</p>
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-om me-3"></i>Goushala
+            </h6>
+            <p class="footer-description">
+              गौ सेवा, मानव सेवा, ईश्वर सेवा<br>
+              <span class="footer-translation">Service to Cows is Service to Humanity and the Divine</span>
+            </p>
           </div>
   
-          <!-- Useful Links -->
+          <!-- Quick Links -->
           <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-  <h6 class="text-uppercase fw-bold mb-2">Gaushala Links</h6>
-  <p><a href="#!" class="text-reset">Adopt a Cow</a></p>
-  <p><a href="#!" class="text-reset">Donation</a></p>
-  <p><a href="#!" class="text-reset">Volunteer</a></p>
-  <p><a href="#!" class="text-reset">Events</a></p>
-  <p><a href="#!" class="text-reset">Gallery</a></p>
-  <p><a href="#!" class="text-reset">Testimonials</a></p>
-</div>
+            <h6 class="text-uppercase fw-bold mb-4">Quick Links</h6>
+            <p><a href="#!" class="text-reset footer-link">Adopt a Cow</a></p>
+            <p><a href="#!" class="text-reset footer-link">Make Donation</a></p>
+            <p><a href="#!" class="text-reset footer-link">Join as Volunteer</a></p>
+            <p><a href="#!" class="text-reset footer-link">Upcoming Events</a></p>
+          </div>
   
-          <!-- Contact Information -->
+          <!-- Contact Info -->
           <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
             <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
-            <p><i class="fas fa-home me-3"></i> At post Pimpalgaon Baswant, Village/Taluka/Block: Niphad, District: Nashik, State: Maharashtra</p>
-            <p><i class="fas fa-envelope me-3"></i> info@example.com</p>
-            <p><i class="fas fa-phone me-3"></i> +91 9823079708</p>
-            <p><i class="fas fa-print me-3"></i> +91 9823079708</p>
+            <p><i class="fas fa-home me-3"></i>At post Pimpalgaon Baswant, Village/Taluka/Block: Niphad, District: Nashik, State: Maharashtra</p>
+            <p><i class="fas fa-envelope me-3"></i>gorakshak.socialmedia@gmail.com</p>
+            <p><i class="fas fa-phone me-3"></i>+91 9823079708</p>
           </div>
         </div>
-        <!-- Grid row -->
       </div>
     </section>
-    <!-- Section: Links  -->
+    <!-- Section: Links -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4 copyright-section">
+      © 2024 Gaushala. All rights reserved.
+      <span class="om-symbol">ॐ</span>
+    </div>
   </footer>
 
   <div class="modal fade" id="bookVisitModal" tabindex="-1" aria-labelledby="bookVisitModalLabel" aria-hidden="true">
@@ -409,5 +885,40 @@
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
+
+<script>
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        includedLanguages: 'en,hi,mr',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+}
+
+function changeLanguage(lang) {
+    const select = document.querySelector('.goog-te-combo');
+    if (select) {
+        select.value = lang;
+        select.dispatchEvent(new Event('change'));
+    }
+}
+
+$(document).ready(function() {
+    // Add hover effect for nav links
+    $(".nav-link").hover(function() {
+        $(this).css("letter-spacing", "1px");
+    }, function() {
+        $(this).css("letter-spacing", "0");
+    });
+
+    // Smooth scrolling for anchor links
+    $('a.nav-link').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({
+            scrollTop: $($(this).attr('href')).offset().top
+        }, 800);
+    });
+});
+</script>
 </body>
 </html>

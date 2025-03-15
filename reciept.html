@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Receipt - श्री उज्ज्वल गोरक्षण संस्था</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        @keyframes floatingOm {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes divineLight {
+            0% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+            100% { opacity: 0.3; }
+        }
+
+        body {
+            background: linear-gradient(45deg, #fff5e6, #fff9f0, #fff5e6);
+            background-size: 200% 200%;
+            animation: gradientBG 15s ease infinite;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 140, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: 'ॐ';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.03;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: floatingOm 6s ease-in-out infinite;
+        }
+
+        .receipt {
+            display: none;
+            padding: 30px;
+            border: 2px solid #ff8c00;
+            margin-top: 20px;
+            background: #fff;
+            text-align: center;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(255, 140, 0, 0.1);
+        }
+
+        .receipt::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 140, 0, 0.1), transparent);
+            pointer-events: none;
+            border-radius: 15px;
+        }
+
+        .receipt h3 {
+            color: #ff8c00;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .receipt h3::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff8c00, transparent);
+        }
+
+        .form-control {
+            border: 2px solid rgba(255, 140, 0, 0.2);
+            border-radius: 10px;
+            padding: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: #ff8c00;
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: linear-gradient(45deg, #ff8c00, #ff6b00);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 140, 0, 0.2);
+        }
+
+        .btn-success::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .btn-success:hover::before {
+            left: 100%;
+        }
+
+        .divine-border {
+            position: relative;
+            padding: 20px;
+        }
+
+        .divine-border::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid rgba(255, 140, 0, 0.2);
+            border-radius: 10px;
+            animation: divineLight 3s infinite;
+            pointer-events: none;
+        }
+
+        .org-title {
+            font-size: 2.5rem;
+            color: #ff8c00;
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .org-title-mr {
+            font-size: 2rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .receipt-info {
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(255, 140, 0, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .receipt-info:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 140, 0, 0.08);
+        }
+
+        .receipt-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px dashed rgba(255, 140, 0, 0.2);
+        }
+
+        .om-symbol {
+            font-size: 2rem;
+            color: #ff8c00;
+            margin: 10px 0;
+            display: inline-block;
+            animation: floatingOm 6s ease-in-out infinite;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+                margin: 0;
+                padding: 20px;
+            }
+            .btn-print {
+                display: none;
+            }
+            .receipt {
+                border: 2px solid #000;
+            }
+        }
+
+        /* Add styles for payment method select */
+        #payment_method {
+            border: 2px solid rgba(255, 140, 0, 0.2);
+            border-radius: 10px;
+            padding: 12px;
+            transition: all 0.3s ease;
+        }
+
+        #payment_method:focus {
+            border-color: #ff8c00;
+            box-shadow: 0 0 15px rgba(255, 140, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Enhance receipt styles for PDF */
+        .receipt {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(255, 140, 0, 0.1);
+            page-break-inside: avoid;
+        }
+
+        .receipt::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text x="50" y="50" font-size="50" text-anchor="middle" dy=".35em" fill="rgba(255,140,0,0.05)">ॐ</text></svg>');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 200px;
+            opacity: 0.1;
+            pointer-events: none;
+        }
+
+        @media print {
+            .receipt::before {
+                display: none;
+            }
+            .receipt {
+                box-shadow: none;
+                border: 2px solid #000;
+            }
+        }
+
+        /* Add print-specific styles */
+        @media print {
+            .receipt {
+                display: block !important;
+                background: white;
+                padding: 20px;
+                margin: 0;
+                border: none;
+            }
+            .btn-success {
+                display: none !important;
+            }
+            .receipt-info {
+                page-break-inside: avoid;
+            }
+            .receipt-footer {
+                page-break-inside: avoid;
+                margin-top: 20px;
+            }
+        }
+
+        /* Add these styles for better PDF rendering */
+        @media print {
+            .receipt {
+                background: white !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .receipt * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .org-title, .org-title-mr, h3 {
+                color: #ff8c00 !important;
+            }
+            
+            .om-symbol {
+                color: #ff8c00 !important;
+            }
+        }
+        
+        /* Enhance receipt styles */
+        .receipt {
+            background: white;
+            border: 2px solid #ff8c00;
+            padding: 40px;
+            margin: 20px auto;
+            max-width: 800px;
+            position: relative;
+        }
+        
+        .receipt::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(255, 140, 0, 0.05), transparent);
+            pointer-events: none;
+        }
+        
+        .receipt-info {
+            text-align: left;
+            padding: 20px;
+            background: rgba(255, 140, 0, 0.02);
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        
+        .receipt-info p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="org-title">Shree Ujjwal Gorakshan Sanstha</h1>
+        <h2 class="org-title-mr">श्री उज्ज्वल गोरक्षण संस्था</h2>
+        <h3 class="text-center mb-4">गौशाळा दान पावती / Gaushala Donation Receipt</h3>
+        
+        <form id="donationForm" class="divine-border">
+            <div class="mb-3">
+                <label class="form-label">दानकर्त्याचे नाव / Donor's Name:</label>
+                <input type="text" id="donor_name" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">मोबाइल नंबर / Mobile Number:</label>
+                <input type="text" id="mobile" class="form-control" required pattern="\d{10}" title="Please enter a 10-digit mobile number">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">ई-मेल / Email:</label>
+                <input type="email" id="email" class="form-control" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">दानाची रक्कम / Donation Amount (₹):</label>
+                <input type="number" id="amount" class="form-control" required min="1">
+            </div>
+            <div class="mb-3">
+                <label class="form-label">दानाचा प्रकार / Donation Type:</label>
+                <select id="donation_type" class="form-control">
+                    <option value="गाय दत्तक योजना">गाय दत्तक योजना / Cow Adoption Scheme</option>
+                    <option value="आहार दान">आहार दान / Food Donation</option>
+                    <option value="गोशाळा विकास">गोशाळा विकास / Gaushala Development</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">पेमेंट पद्धत / Payment Method:</label>
+                <select id="payment_method" class="form-control">
+                    <option value="Cash">रोख / Cash</option>
+                    <option value="UPI">यूपीआय / UPI</option>
+                    <option value="Bank Transfer">बँक ट्रान्सफर / Bank Transfer</option>
+                    <option value="Cheque">चेक / Cheque</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">तारीख / Date:</label>
+                <input type="date" id="date" class="form-control" required>
+            </div>
+            <button type="button" id="payButton" class="btn btn-success w-100">
+                <i class="fas fa-hand-holding-heart me-2"></i>दान करा / Donate Now
+            </button>
+        </form>
+
+        <div class="receipt mt-4" id="receipt">
+            <div class="org-title">Shree Ujjwal Gorakshan Sanstha</div>
+            <div class="org-title-mr">श्री उज्ज्वल गोरक्षण संस्था</div>
+            <div class="text-center mb-3">At post Pimpalgaon Baswant, Niphad, Nashik, Maharashtra</div>
+            
+            <h3>गौशाळा दान पावती / Gaushala Donation Receipt</h3>
+            
+            <div class="receipt-info">
+                <p><strong>दानकर्त्याचे नाव / Donor's Name:</strong> <span id="r_donor_name"></span></p>
+                <p><strong>मोबाइल नंबर / Mobile Number:</strong> <span id="r_mobile"></span></p>
+                <p><strong>ई-मेल / Email:</strong> <span id="r_email"></span></p>
+                <p><strong>दानाची रक्कम / Donation Amount:</strong> ₹<span id="r_amount"></span></p>
+                <p><strong>दानाचा प्रकार / Donation Type:</strong> <span id="r_donation_type"></span></p>
+                <p><strong>पेमेंट पद्धत / Payment Method:</strong> <span id="r_payment_method"></span></p>
+                <p><strong>तारीख / Date:</strong> <span id="r_date"></span></p>
+            </div>
+            
+            <div class="receipt-footer">
+                <p class="mb-0"><strong>श्री उज्ज्वल गोरक्षण संस्था</strong></p>
+                <div class="om-symbol">ॐ</div>
+                <p class="mb-0">|| गो सेवा परमो धर्मः ||</p>
+                <p class="mb-0">|| Go Seva Paramo Dharmah ||</p>
+            </div>
+            
+            <button class="btn btn-success mt-4" onclick="printReceipt()">
+                <i class="fas fa-print me-2"></i>पावती छापा / Print Receipt
+            </button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $("#payButton").click(function () {
+                let donorName = $("#donor_name").val();
+                let mobile = $("#mobile").val();
+                let email = $("#email").val();
+                let amount = $("#amount").val();
+                let donationType = $("#donation_type").val();
+                let paymentMethod = $("#payment_method").val();
+                let date = $("#date").val();
+
+                if (donorName === "" || mobile === "" || email === "" || amount === "" || date === "") {
+                    alert("कृपया सर्व माहिती भरा / Please fill all information.");
+                    return;
+                }
+
+                // Update receipt immediately without payment gateway
+                $("#r_donor_name").text(donorName);
+                $("#r_mobile").text(mobile);
+                $("#r_email").text(email);
+                $("#r_amount").text(amount);
+                $("#r_donation_type").text(donationType);
+                $("#r_payment_method").text(paymentMethod);
+                $("#r_date").text(formatDate(date));
+
+                // Show receipt with animation
+                $(".receipt").fadeIn(1000);
+                
+                // Scroll to receipt
+                $('html, body').animate({
+                    scrollTop: $(".receipt").offset().top
+                }, 1000);
+            });
+        });
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-IN', {
+                day: '2-digit',
+                month: '2-digit',
+                year: 'numeric'
+            });
+        }
+
+        function generateReceiptNumber() {
+            const date = new Date();
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            const random = Math.floor(Math.random() * 1000).toString().padStart(3, '0');
+            return `GS${year}${month}${day}${random}`;
+        }
+
+        async function printReceipt() {
+            try {
+                // Hide print button temporarily
+                const printButton = document.querySelector('.receipt button');
+                printButton.style.display = 'none';
+
+                // Add receipt number
+                const receiptNumberDiv = document.createElement('div');
+                receiptNumberDiv.style.position = 'absolute';
+                receiptNumberDiv.style.bottom = '20px';
+                receiptNumberDiv.style.left = '20px';
+                receiptNumberDiv.style.fontSize = '12px';
+                receiptNumberDiv.textContent = 'Receipt No: ' + generateReceiptNumber();
+                document.querySelector('.receipt').appendChild(receiptNumberDiv);
+
+                // Configure html2canvas options
+                const options = {
+                    scale: 2,
+                    useCORS: true,
+                    allowTaint: true,
+                    scrollY: -window.scrollY,
+                    windowWidth: document.documentElement.offsetWidth,
+                    windowHeight: document.documentElement.offsetHeight,
+                    onclone: function(clonedDoc) {
+                        clonedDoc.querySelector('.receipt').style.display = 'block';
+                        clonedDoc.querySelector('.receipt').style.padding = '40px';
+                        clonedDoc.querySelector('.receipt').style.margin = '20px';
+                        clonedDoc.querySelector('.receipt').style.border = '2px solid #ff8c00';
+                    }
+                };
+
+                // Create canvas
+                const canvas = await html2canvas(document.querySelector('.receipt'), options);
+
+                // Calculate dimensions
+                const imgWidth = 210; // A4 width in mm
+                const pageHeight = 297; // A4 height in mm
+                const imgHeight = canvas.height * imgWidth / canvas.width;
+
+                // Create PDF
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+
+                // Add image to PDF
+                pdf.addImage(
+                    canvas.toDataURL('image/jpeg', 1.0),
+                    'JPEG',
+                    0,
+                    0,
+                    imgWidth,
+                    imgHeight,
+                    '',
+                    'FAST'
+                );
+
+                // Add watermark
+                pdf.setTextColor(255, 140, 0, 0.1);
+                pdf.setFontSize(60);
+                pdf.text('ॐ', pdf.internal.pageSize.getWidth() / 2, pdf.internal.pageSize.getHeight() / 2, {
+                    align: 'center',
+                    angle: 45
+                });
+
+                // Save PDF
+                pdf.save('donation_receipt.pdf');
+
+                // Show success message
+                alert('PDF पावती तयार झाली आहे / PDF Receipt has been generated!');
+
+                // Cleanup
+                printButton.style.display = 'block';
+                receiptNumberDiv.remove();
+
+            } catch (error) {
+                console.error('PDF generation error:', error);
+                alert('PDF तयार करताना त्रुटी आली आहे. कृपया पुन्हा प्रयत्न करा. / Error generating PDF. Please try again.');
+            }
+        }
+    </script>
+
+</body>
+</html>
